@@ -1,0 +1,13 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  balancescaleselenium:
+    image: balancescaleselenium
+    environment:
+      - ASPNETCORE_ENVIRONMENT="stage"
+    build:
+      context: .
+      dockerfile: src/BalanceScaleSelenium/Dockerfile
+    container_name: "BSContainer"

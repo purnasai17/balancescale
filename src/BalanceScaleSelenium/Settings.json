@@ -1,0 +1,54 @@
+{
+  "Environment": {
+    "Development": {
+      "BaseUrl": ""
+    },
+    "Stage": {
+      "BaseUrl": "http://ec2-54-208-152-154.compute-1.amazonaws.com/"
+    }
+  },
+  "Data": {
+    "InputNumbers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "Serilog": {
+    "Using": [
+      "Serilog.Sinks.Console",
+      "Serilog.Sinks.File"
+    ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Information",
+        "System": "Information"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Console"
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "shared": true,
+          "formatter": "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact",
+          "path": "balancescale.log",
+          "fileSizeLimitBytes": 262144000,
+          "rollOnFileSizeLimit": true,
+          "retainedFileCountLimit": 10,
+          "flushToDiskInterval": "00:00:01",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff}|{ThreadId}|{ActivityId}|{Level:u3}|{Message:j}{NewLine}{Exception}"
+        }
+      }
+    ]
+  }
+}
