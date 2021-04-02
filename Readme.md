@@ -136,3 +136,4 @@ The solution tags (or annotates) tests as smoke tests using xUnit Traits. I.e. `
 Now you can filter the running tests by Category using `dotnet test --filter "Category=Smoke"`, `dotnet test --filter "Category=Regression"`
 
 ## Test Report
+![Allure_Report](https://user-images.githubusercontent.com/23709744/113428484-de64ce00-93a4-11eb-8843-ba37759084cc.gif)
